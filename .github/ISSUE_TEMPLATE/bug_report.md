@@ -25,8 +25,8 @@ If applicable, add screenshots to help explain your problem.
 
 **Platform (please complete the following information):**
  - OS: [e.g. iOS]
- - OS Version [e.g. 22] 
- - App Version [At this moment there's no way to check that info from the app]
+ - OS Version: [e.g. 22] 
+ - App Version: [At this moment there's no way to check that info from the app]
 
 **Additional context**
 Add any other context about the problem here.
