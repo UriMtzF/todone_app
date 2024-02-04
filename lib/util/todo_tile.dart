@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
+import 'package:todone_app/generated/l10n.dart';
 
 // ignore: must_be_immutable
 class ToDoTile extends StatelessWidget {
@@ -22,7 +23,10 @@ class ToDoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DateFormat dateFormat = DateFormat('MMM dd');
+    DateFormat dateFormat = DateFormat(
+      'MMM d',
+      Localizations.localeOf(context).languageCode,
+    );
     TextStyle taskInfoStyle =
         TextStyle(color: Theme.of(context).hintColor, fontSize: 11);
     return Padding(
@@ -62,7 +66,7 @@ class ToDoTile extends StatelessWidget {
                         children: [
                           dueDate != null
                               ? Text(
-                                  'Due: ${dateFormat.format(dueDate!)}',
+                                  '${S.current.due}: ${dateFormat.format(dueDate!)}',
                                   style: taskInfoStyle,
                                 )
                               : const SizedBox(
@@ -70,7 +74,7 @@ class ToDoTile extends StatelessWidget {
                                 ),
                           priority.isNotEmpty
                               ? Text(
-                                  ' · Priority: $priority',
+                                  ' · ${S.current.priority}: $priority',
                                   style: taskInfoStyle,
                                 )
                               : const SizedBox(

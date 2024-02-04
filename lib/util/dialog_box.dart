@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todone_app/generated/l10n.dart';
 import 'package:todone_app/util/action_button.dart';
 
 // ignore: must_be_immutable
@@ -23,22 +24,23 @@ class DialogBox extends StatelessWidget {
           children: [
             TextField(
               controller: controller,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: "Add new task",
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
+                hintText: S.current.addNewTask,
               ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Flexible(
-                  child: ActionButton(text: 'Save', onPressed: onSave),
+                  child: ActionButton(text: S.current.save, onPressed: onSave),
                 ),
                 const SizedBox(
                   width: 5,
                 ),
                 Flexible(
-                  child: ActionButton(text: 'Cancel', onPressed: onCancel),
+                  child:
+                      ActionButton(text: S.current.cancel, onPressed: onCancel),
                 ),
               ],
             )
