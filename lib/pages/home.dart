@@ -50,6 +50,7 @@ class _HomeState extends State<Home> {
       String configString =
           '{ "tasksPath": "${docsDir.path}/ToDone/tasks.todo" }';
       File('${configDir.path}/config.json').writeAsStringSync(configString);
+      tasksPath = '${docsDir.path}/ToDone/tasks.todo';
     }
 
     if (!File(tasksPath).existsSync()) {
