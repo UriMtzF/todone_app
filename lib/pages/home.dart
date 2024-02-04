@@ -119,6 +119,8 @@ class _HomeState extends State<Home> {
         itemBuilder: (context, index) {
           return ToDoTile(
             title: tasks[index].title,
+            dueDate: tasks[index].dueDate,
+            priority: tasks[index].priority,
             taskCompleted: _isTaskCompleted(index),
             onChanged: (value) => _checkBoxChanged(value!, index),
             deleteFunction: (value) => _deleteTask(index),
