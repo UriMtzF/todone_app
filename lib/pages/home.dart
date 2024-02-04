@@ -66,7 +66,6 @@ class _HomeState extends State<Home> {
       Task task = Task(_controller.text);
       task.creationDate = DateTime.now();
       tasks.add(task);
-      _controller.clear();
       parser.writeToFilePath(tasksPath, tasks);
     });
     Navigator.of(context).pop();
@@ -79,10 +78,13 @@ class _HomeState extends State<Home> {
         return DialogBox(
           controller: _controller,
           onSave: saveNewTask,
-          onCancel: () => Navigator.of(context).pop(),
+          onCancel: () {
+            Navigator.of(context).pop();
+          },
         );
       },
     );
+    _controller.clear();
   }
 
   void _deleteTask(int index) {
