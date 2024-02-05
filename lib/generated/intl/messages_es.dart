@@ -27,6 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
         "due": MessageLookupByLibrary.simpleMessage("Vencimiento"),
         "dueDate": MessageLookupByLibrary.simpleMessage("Fecha de vencimiento"),
+        "emptyList": MessageLookupByLibrary.simpleMessage("No hay tareas"),
+        "emptyListDescription": MessageLookupByLibrary.simpleMessage(
+            "Agrega una nueva tarea haciendo clic en el botón +"),
         "priority": MessageLookupByLibrary.simpleMessage("Prioridad"),
         "save": MessageLookupByLibrary.simpleMessage("Guardar"),
         "title": MessageLookupByLibrary.simpleMessage("Título"),

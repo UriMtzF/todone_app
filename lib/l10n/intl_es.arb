@@ -15,5 +15,9 @@
   "titleCannotBeEmpty": "El título no puede estar vacío",
   "@titleCannotBeEmpty": {},
   "title": "Título",
-  "@title": {}
+  "@title": {},
+  "emptyList": "No hay tareas",
+  "@emptyList": {},
+  "emptyListDescription": "Agrega una nueva tarea haciendo clic en el botón +",
+  "@emptyListDescription": {}
 }

@@ -129,6 +129,26 @@ class S {
       args: [],
     );
   }
+
+  /// `There are no tasks`
+  String get emptyList {
+    return Intl.message(
+      'There are no tasks',
+      name: 'emptyList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add a new task by pressing the + button`
+  String get emptyListDescription {
+    return Intl.message(
+      'Add a new task by pressing the + button',
+      name: 'emptyListDescription',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

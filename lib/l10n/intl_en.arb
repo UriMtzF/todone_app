@@ -15,5 +15,9 @@
   "titleCannotBeEmpty": "The title cannot be empty",
   "@titleCannotBeEmpty": {},
   "title": "Title",
-  "@title": {}
+  "@title": {},
+  "emptyList": "There are no tasks",
+  "@emptyList": {},
+  "emptyListDescription": "Add a new task by pressing the + button",
+  "@emptyListDescription": {}
 }

@@ -32,14 +32,17 @@ class ToDoTile extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
       child: Slidable(
-        endActionPane: ActionPane(motion: const StretchMotion(), children: [
-          SlidableAction(
-            onPressed: deleteFunction,
-            icon: Icons.delete,
-            backgroundColor: Colors.red,
-            borderRadius: BorderRadius.circular(10),
-          )
-        ]),
+        endActionPane: ActionPane(
+          motion: const StretchMotion(),
+          children: [
+            SlidableAction(
+              onPressed: deleteFunction,
+              icon: Icons.delete,
+              backgroundColor: Colors.red,
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ],
+        ),
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(

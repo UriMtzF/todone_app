@@ -3,7 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:todone_app/generated/l10n.dart';
 import 'package:todone_app/util/dialog_box.dart';
+import 'package:todone_app/util/empty_list_view.dart';
 import 'package:todone_app/util/todo_tile.dart';
 import 'package:todone_lib/todone_lib.dart';
 
@@ -89,10 +91,9 @@ class _HomeState extends State<Home> {
   }
 
   void _deleteTask(int index) {
-    setState(() {
-      tasks.removeAt(index);
-      parser.writeToFilePath(tasksPath, tasks);
-    });
+    tasks.removeAt(index);
+    parser.writeToFilePath(tasksPath, tasks);
+    setState(() {});
   }
 
   @override
@@ -120,20 +121,25 @@ class _HomeState extends State<Home> {
           setState(() {});
           return Future<void>.delayed(const Duration(seconds: 0));
         },
-        child: ListView.builder(
-          physics: const AlwaysScrollableScrollPhysics(),
-          itemCount: tasks.length,
-          itemBuilder: (context, index) {
-            return ToDoTile(
-              title: tasks[index].title,
-              dueDate: tasks[index].dueDate,
-              priority: tasks[index].priority,
-              taskCompleted: _isTaskCompleted(index),
-              onChanged: (value) => _checkBoxChanged(value!, index),
-              deleteFunction: (value) => _deleteTask(index),
-            );
-          },
-        ),
+        child: tasks.isEmpty
+            ? EmptyListView(
+                title: S.current.emptyList,
+                description: S.current.emptyListDescription,
+              )
+            : ListView.builder(
+                physics: const AlwaysScrollableScrollPhysics(),
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  return ToDoTile(
+                    title: tasks[index].title,
+                    dueDate: tasks[index].dueDate,
+                    priority: tasks[index].priority,
+                    taskCompleted: _isTaskCompleted(index),
+                    onChanged: (value) => _checkBoxChanged(value!, index),
+                    deleteFunction: (value) => _deleteTask(index),
+                  );
+                },
+              ),
       ),
     );
   }
