@@ -114,18 +114,26 @@ class _HomeState extends State<Home> {
         onPressed: _createNewTask,
         child: const Icon(Icons.add),
       ),
-      body: ListView.builder(
-        itemCount: tasks.length,
-        itemBuilder: (context, index) {
-          return ToDoTile(
-            title: tasks[index].title,
-            dueDate: tasks[index].dueDate,
-            priority: tasks[index].priority,
-            taskCompleted: _isTaskCompleted(index),
-            onChanged: (value) => _checkBoxChanged(value!, index),
-            deleteFunction: (value) => _deleteTask(index),
-          );
+      body: RefreshIndicator(
+        onRefresh: () {
+          tasks = parser.parseTasksFromPath(tasksPath);
+          setState(() {});
+          return Future<void>.delayed(const Duration(seconds: 0));
         },
+        child: ListView.builder(
+          physics: const AlwaysScrollableScrollPhysics(),
+          itemCount: tasks.length,
+          itemBuilder: (context, index) {
+            return ToDoTile(
+              title: tasks[index].title,
+              dueDate: tasks[index].dueDate,
+              priority: tasks[index].priority,
+              taskCompleted: _isTaskCompleted(index),
+              onChanged: (value) => _checkBoxChanged(value!, index),
+              deleteFunction: (value) => _deleteTask(index),
+            );
+          },
+        ),
       ),
     );
   }

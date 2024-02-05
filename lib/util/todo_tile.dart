@@ -64,22 +64,18 @@ class ToDoTile extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          dueDate != null
-                              ? Text(
-                                  '${S.current.due}: ${dateFormat.format(dueDate!)}',
-                                  style: taskInfoStyle,
-                                )
-                              : const SizedBox(
-                                  height: 1,
-                                ),
-                          priority.isNotEmpty
-                              ? Text(
-                                  ' · ${S.current.priority}: $priority',
-                                  style: taskInfoStyle,
-                                )
-                              : const SizedBox(
-                                  height: 1,
-                                ),
+                          for (var condition in [
+                            if (dueDate != null)
+                              '${S.current.due}: ${dateFormat.format(dueDate!)}',
+                            if (priority.isNotEmpty && dueDate != null)
+                              ' · ${S.current.priority}: $priority',
+                            if (priority.isNotEmpty && dueDate == null)
+                              '${S.current.priority}: $priority',
+                          ])
+                            Text(
+                              condition,
+                              style: taskInfoStyle,
+                            )
                         ],
                       )
                     ],
