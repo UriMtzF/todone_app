@@ -28,6 +28,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "due": MessageLookupByLibrary.simpleMessage("Vencimiento"),
         "dueDate": MessageLookupByLibrary.simpleMessage("Fecha de vencimiento"),
         "priority": MessageLookupByLibrary.simpleMessage("Prioridad"),
-        "save": MessageLookupByLibrary.simpleMessage("Guardar")
+        "save": MessageLookupByLibrary.simpleMessage("Guardar"),
+        "title": MessageLookupByLibrary.simpleMessage("Título"),
+        "titleCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+            "El título no puede estar vacío")
       };
 }

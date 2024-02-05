@@ -11,5 +11,9 @@
   "priority": "Priority",
   "@priority": {},
   "dueDate": "Due date",
-  "@dueDate": {}
+  "@dueDate": {},
+  "titleCannotBeEmpty": "The title cannot be empty",
+  "@titleCannotBeEmpty": {},
+  "title": "Title",
+  "@title": {}
 }

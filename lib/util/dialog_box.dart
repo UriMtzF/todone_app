@@ -16,31 +16,41 @@ class DialogBox extends StatelessWidget {
     required this.onCancel,
   });
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     DateTime? dueDate;
     TextEditingController dueDateController = TextEditingController();
-    var dueDateFormat = DateFormat('EEE d MMM');
+    DateFormat dueDateFormat = DateFormat('EEE d MMM');
     return AlertDialog(
-      content: SizedBox(
-        height: 150,
+      contentPadding: const EdgeInsets.all(16),
+      content: Form(
+        key: _formKey,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            TextField(
+            TextFormField(
               controller: controller,
               decoration: InputDecoration(
-                border: const OutlineInputBorder(),
-                hintText: S.current.addNewTask,
-              ),
+                  border: const OutlineInputBorder(),
+                  labelText: S.current.title,
+                  hintText: S.current.addNewTask),
+              validator: (String? value) {
+                if (value == null || value.isEmpty) {
+                  return S.current.titleCannotBeEmpty;
+                }
+                return null;
+              },
             ),
             const SizedBox(
-              height: 3,
+              height: 5,
             ),
             Row(
               children: [
                 Flexible(
-                  flex: 3,
+                  flex: 5,
                   child: TextField(
                     controller: dueDateController,
                     readOnly: true,
@@ -72,7 +82,7 @@ class DialogBox extends StatelessWidget {
               ],
             ),
             const SizedBox(
-              height: 3,
+              height: 5,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -80,7 +90,11 @@ class DialogBox extends StatelessWidget {
                 Flexible(
                   child: ActionButton(
                     text: S.current.save,
-                    onPressed: () => onSave(dueDate),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        onSave(dueDate);
+                      }
+                    },
                   ),
                 ),
                 const SizedBox(

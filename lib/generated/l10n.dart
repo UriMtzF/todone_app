@@ -109,6 +109,26 @@ class S {
       args: [],
     );
   }
+
+  /// `The title cannot be empty`
+  String get titleCannotBeEmpty {
+    return Intl.message(
+      'The title cannot be empty',
+      name: 'titleCannotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get title {
+    return Intl.message(
+      'Title',
+      name: 'title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

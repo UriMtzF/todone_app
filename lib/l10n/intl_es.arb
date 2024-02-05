@@ -11,5 +11,9 @@
   "priority": "Prioridad",
   "@priority": {},
   "dueDate": "Fecha de vencimiento",
-  "@dueDate": {}
+  "@dueDate": {},
+  "titleCannotBeEmpty": "El título no puede estar vacío",
+  "@titleCannotBeEmpty": {},
+  "title": "Título",
+  "@title": {}
 }

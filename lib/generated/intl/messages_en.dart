@@ -27,6 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "due": MessageLookupByLibrary.simpleMessage("Due"),
         "dueDate": MessageLookupByLibrary.simpleMessage("Due date"),
         "priority": MessageLookupByLibrary.simpleMessage("Priority"),
-        "save": MessageLookupByLibrary.simpleMessage("Save")
+        "save": MessageLookupByLibrary.simpleMessage("Save"),
+        "title": MessageLookupByLibrary.simpleMessage("Title"),
+        "titleCannotBeEmpty":
+            MessageLookupByLibrary.simpleMessage("The title cannot be empty")
       };
 }
