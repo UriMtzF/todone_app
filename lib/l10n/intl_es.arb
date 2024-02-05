@@ -9,5 +9,7 @@
   "due": "Vencimiento",
   "@due": {},
   "priority": "Prioridad",
-  "@priority": {}
+  "@priority": {},
+  "dueDate": "Fecha de vencimiento",
+  "@dueDate": {}
 }

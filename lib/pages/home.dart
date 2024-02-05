@@ -62,14 +62,14 @@ class _HomeState extends State<Home> {
 
   final _controller = TextEditingController();
 
-  void saveNewTask() {
-    setState(() {
-      Task task = Task(_controller.text);
-      task.creationDate = DateTime.now();
-      tasks.add(task);
-      parser.writeToFilePath(tasksPath, tasks);
-    });
+  void saveNewTask(DateTime? dueDate) {
+    Task task = Task(_controller.text);
+    task.creationDate = DateTime.now();
+    task.dueDate = dueDate;
+    tasks.add(task);
+    parser.writeToFilePath(tasksPath, tasks);
     Navigator.of(context).pop();
+    setState(() {});
   }
 
   void _createNewTask() {
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
       builder: (context) {
         return DialogBox(
           controller: _controller,
-          onSave: saveNewTask,
+          onSave: (DateTime? dueDate) => (saveNewTask(dueDate)),
           onCancel: () {
             Navigator.of(context).pop();
           },

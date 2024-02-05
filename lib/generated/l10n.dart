@@ -99,6 +99,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Due date`
+  String get dueDate {
+    return Intl.message(
+      'Due date',
+      name: 'dueDate',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

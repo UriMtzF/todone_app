@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "addNewTask": MessageLookupByLibrary.simpleMessage("Add new task"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "due": MessageLookupByLibrary.simpleMessage("Due"),
+        "dueDate": MessageLookupByLibrary.simpleMessage("Due date"),
         "priority": MessageLookupByLibrary.simpleMessage("Priority"),
         "save": MessageLookupByLibrary.simpleMessage("Save")
       };
