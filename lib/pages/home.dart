@@ -96,6 +96,30 @@ class _HomeState extends State<Home> {
     setState(() {});
   }
 
+  void saveEditedTask(DateTime? dueDate, int index) {
+    tasks[index].title = _controller.text;
+    tasks[index].dueDate = dueDate;
+    parser.writeToFilePath(tasksPath, tasks);
+    Navigator.of(context).pop();
+    _controller.clear();
+    setState(() {});
+  }
+
+  void _editTask(int index) {
+    _controller.text = tasks[index].title;
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox(
+          controller: _controller,
+          onSave: (DateTime? dueDate) => saveEditedTask(dueDate, index),
+          onCancel: () => Navigator.of(context).pop(),
+          dueDate: tasks[index].dueDate,
+        );
+      },
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -137,6 +161,7 @@ class _HomeState extends State<Home> {
                     taskCompleted: _isTaskCompleted(index),
                     onChanged: (value) => _checkBoxChanged(value!, index),
                     deleteFunction: (value) => _deleteTask(index),
+                    editFunciton: () => _editTask(index),
                   );
                 },
               ),

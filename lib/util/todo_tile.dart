@@ -11,6 +11,7 @@ class ToDoTile extends StatelessWidget {
   final bool taskCompleted;
   Function(bool?)? onChanged;
   Function(BuildContext?)? deleteFunction;
+  Function()? editFunciton;
   ToDoTile({
     super.key,
     required this.title,
@@ -19,6 +20,7 @@ class ToDoTile extends StatelessWidget {
     required this.taskCompleted,
     required this.onChanged,
     required this.deleteFunction,
+    required this.editFunciton,
   });
 
   @override
@@ -84,7 +86,11 @@ class ToDoTile extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+              IconButton(
+                onPressed: editFunciton,
+                icon: const Icon(Icons.edit),
+              ),
             ],
           ),
         ),

@@ -8,21 +8,28 @@ class DialogBox extends StatelessWidget {
   final TextEditingController controller;
   Function(DateTime?) onSave;
   VoidCallback onCancel;
+  late DateTime? dueDate;
 
   DialogBox({
     super.key,
     required this.controller,
     required this.onSave,
     required this.onCancel,
+    this.dueDate,
   });
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    DateTime? dueDate;
-    TextEditingController dueDateController = TextEditingController();
+    TextEditingController dueDateController;
     DateFormat dueDateFormat = DateFormat('EEE d MMM');
+    if (dueDate != null) {
+      dueDateController =
+          TextEditingController(text: dueDateFormat.format(dueDate!));
+    } else {
+      dueDateController = TextEditingController();
+    }
     return AlertDialog(
       contentPadding: const EdgeInsets.all(16),
       content: Form(
