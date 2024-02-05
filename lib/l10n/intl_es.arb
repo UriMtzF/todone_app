@@ -1,7 +1,13 @@
 {
+  "@@locale": "es",
   "addNewTask": "Agregar nueva tarea",
+  "@addNewTask": {},
   "save": "Guardar",
+  "@save": {},
   "cancel": "Cancelar",
+  "@cancel": {},
   "due": "Vencimiento",
-  "priority": "Prioridad"
+  "@due": {},
+  "priority": "Prioridad",
+  "@priority": {}
 }

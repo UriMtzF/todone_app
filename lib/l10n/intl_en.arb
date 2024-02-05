@@ -1,7 +1,13 @@
 {
+  "@@locale": "en",
   "addNewTask": "Add new task",
+  "@addNewTask": {},
   "save": "Save",
+  "@save": {},
   "cancel": "Cancel",
+  "@cancel": {},
   "due": "Due",
-  "priority": "Priority"
+  "@due": {},
+  "priority": "Priority",
+  "@priority": {}
 }
