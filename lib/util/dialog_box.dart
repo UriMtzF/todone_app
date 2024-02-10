@@ -96,20 +96,24 @@ class DialogBox extends StatelessWidget {
               children: [
                 Flexible(
                   child: ActionButton(
-                    text: S.current.save,
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
-                        onSave(dueDate);
-                      }
-                    },
+                    text: S.current.cancel,
+                    color: Theme.of(context).colorScheme.error,
+                    onPressed: onCancel,
                   ),
                 ),
                 const SizedBox(
                   width: 5,
                 ),
                 Flexible(
-                  child:
-                      ActionButton(text: S.current.cancel, onPressed: onCancel),
+                  child: ActionButton(
+                    text: S.current.save,
+                    color: Theme.of(context).colorScheme.primary,
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        onSave(dueDate);
+                      }
+                    },
+                  ),
                 ),
               ],
             )

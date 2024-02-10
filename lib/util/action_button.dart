@@ -4,13 +4,20 @@ import 'package:flutter/material.dart';
 class ActionButton extends StatelessWidget {
   final String text;
   VoidCallback onPressed;
-  ActionButton({super.key, required this.text, required this.onPressed});
+  final Color color;
+  ActionButton({
+    super.key,
+    required this.text,
+    required this.color,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       onPressed: onPressed,
-      color: Theme.of(context).primaryColor,
+      color: color,
+      textColor: Colors.black,
       child: Text(text),
     );
   }
